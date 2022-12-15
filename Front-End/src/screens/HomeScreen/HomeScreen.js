@@ -1,11 +1,24 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
+import CustomButton from '../../components/CustomButton'
+import { useNavigation } from '@react-navigation/native';
 
 const HomeScreen = () => {
+
+  const navigation = useNavigation('');
+  const onDietZonePressed = () => {
+      navigation.navigate('Diet Zone');
+  };
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Hey Pal</Text>
-      <Text>HOME Page</Text>
+
+      <Text style={styles.heading}>HOME Page</Text>
+      
+      <CustomButton 
+        text="Diet Zone"
+        type="PRIMARY"
+        onPress={onDietZonePressed}
+      />
     </View>
   )
 }

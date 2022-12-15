@@ -5,12 +5,6 @@ import HomeScreen from './src/screens/HomeScreen';
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      {/* <LoginScreen /> */}
-      {/* <SignUpScreen /> */}
-      {/* <ConfirmEmailScreen /> */}
-      {/* <ForgotPasswordScreen /> */}
-      {/* <NewPasswordScreen /> */}
-      {/* <HomeScreen /> */}
       <Navigation />
     </SafeAreaView>
   );
