@@ -1,12 +1,14 @@
-import React, {useState} from 'react';
-import { SafeAreaView, StyleSheet, Image} from "react-native";
+import React, { useState } from 'react';
+import { SafeAreaView, StyleSheet, Image, TextInput } from "react-native";
 import logo from '../../../../assets/images/logo.png'
 import CustomInput from "../../../components/CustomInput";
 import CustomButton from '../../../components/CustomButton';
 import { useNavigation } from '@react-navigation/native';
-export default function LoginScreen(){
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+import { useForm, Controller } from 'react-hook-form'
+
+export default function LoginScreen() {
+    // const [username, setUsername] = useState('');
+    // const [password, setPassword] = useState('');
 
     const navigation = useNavigation('');
     const onLoginPressed = () => {
@@ -14,17 +16,18 @@ export default function LoginScreen(){
         //validate user
         navigation.navigate('Home');
     };
-    const onCreateAccountPressed = () =>{
+    const onCreateAccountPressed = () => {
         navigation.navigate("Signup");
-    }; 
-    return(
+    };
+    const { control, handleSubmit } = useForm('');
+    return (
         <SafeAreaView style={styles.page}>
-            <Image 
-                source={logo}  
-                style={styles.logo} 
-                resizeMode="contain" 
+            <Image
+                source={logo}
+                style={styles.logo}
+                resizeMode="contain"
             />
-            <CustomInput 
+            {/* <CustomInput 
                 placeholder="Username" 
                 value={username} 
                 setValue={setUsername} 
@@ -34,16 +37,23 @@ export default function LoginScreen(){
                 value={password} 
                 setValue={setPassword} 
                 secureTextEntry={true} 
+            /> */}
+            <Controller 
+                control={control}
+                name="username"
+                render
             />
-            <CustomButton 
+            <TextInput placeholder="Username" />
+            <TextInput placeholder="Password" />
+            <CustomButton
                 text='Login'
-                onPress={onLoginPressed}
+                onPress={handleSubmit(onLoginPressed)}
                 type="PRIMARY"
                 width="35%"
             />
-            <CustomButton 
+            <CustomButton
                 text='Create Account'
-                onPress={onCreateAccountPressed}
+                onPress={handleSubmit(onCreateAccountPressed)}
                 type="SECONDARY"
                 width="35%"
             />
