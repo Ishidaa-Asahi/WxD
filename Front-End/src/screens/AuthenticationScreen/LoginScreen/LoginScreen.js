@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { SafeAreaView, StyleSheet, Image, TextInput } from "react-native";
+import { SafeAreaView, StyleSheet, Image } from "react-native";
 import logo from '../../../../assets/images/logo.png'
 import CustomInput from "../../../components/CustomInput";
 import CustomButton from '../../../components/CustomButton';
 import { useNavigation } from '@react-navigation/native';
-import { useForm, Controller } from 'react-hook-form'
+
 
 export default function LoginScreen() {
-    // const [username, setUsername] = useState('');
-    // const [password, setPassword] = useState('');
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
 
     const navigation = useNavigation('');
     const onLoginPressed = () => {
@@ -19,7 +19,6 @@ export default function LoginScreen() {
     const onCreateAccountPressed = () => {
         navigation.navigate("Signup");
     };
-    const { control, handleSubmit } = useForm('');
     return (
         <SafeAreaView style={styles.page}>
             <Image
@@ -27,7 +26,7 @@ export default function LoginScreen() {
                 style={styles.logo}
                 resizeMode="contain"
             />
-            {/* <CustomInput 
+            <CustomInput 
                 placeholder="Username" 
                 value={username} 
                 setValue={setUsername} 
@@ -37,23 +36,16 @@ export default function LoginScreen() {
                 value={password} 
                 setValue={setPassword} 
                 secureTextEntry={true} 
-            /> */}
-            <Controller 
-                control={control}
-                name="username"
-                render
             />
-            <TextInput placeholder="Username" />
-            <TextInput placeholder="Password" />
             <CustomButton
                 text='Login'
-                onPress={handleSubmit(onLoginPressed)}
+                onPress={onLoginPressed}
                 type="PRIMARY"
                 width="35%"
             />
             <CustomButton
                 text='Create Account'
-                onPress={handleSubmit(onCreateAccountPressed)}
+                onPress={onCreateAccountPressed}
                 type="SECONDARY"
                 width="35%"
             />
