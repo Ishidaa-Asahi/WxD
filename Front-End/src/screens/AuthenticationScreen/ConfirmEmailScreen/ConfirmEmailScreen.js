@@ -23,7 +23,7 @@ const onPressGoToSignUp = () => {
         value={code}
         setValue={setCode}
       />
-      <CustomButton 
+      <CuscoretomButton 
         text="Confirm"
         onPress={onPressConfirm}
         type="PRIMARY"
@@ -48,6 +48,8 @@ const onPressGoToSignUp = () => {
 const styles = StyleSheet.create({
     container : {
         padding: 20,
+        backgroundColor: '#F7F8FC',
+        flex: 1,
     },
     heading: {
         fontSize: 30,

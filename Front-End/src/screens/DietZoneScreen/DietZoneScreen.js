@@ -25,8 +25,9 @@ const DietZoneScreen = () => {
 
 const styles = StyleSheet.create({
   page: {
-    backgroundColor: '#fff',
+    backgroundColor: '#F7F8FC',
     padding: 20,
+    flex: 1,
   },
   heading: {
     fontSize: 20,

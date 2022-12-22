@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     container : {
         padding: 20,
         backgroundColor: '#F7F8FC',
+        flex: 1,
     },
     heading :{
         fontSize: 20,
